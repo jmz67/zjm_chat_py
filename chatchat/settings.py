@@ -7,8 +7,7 @@ import typing as t
 
 import nltk
 
-from chatchat import __version__
-from chatchat.pydantic_settings_file import *
+from pydantic_settings_file import *
 
 
 # chatchat 数据目录，必须通过环境变量设置。如未设置则自动使用当前目录。
@@ -17,5 +16,13 @@ from chatchat.pydantic_settings_file import *
 CHATCHAT_ROOT = Path(os.environ.get("CHATCHAT_ROOT", ".")).resolve()
 
 class BasicSettings(BaseFileSettings):
-    ... 
+    """
+    服务器的基本配置信息
+    除 log_verbose/HTTPX_DEFAULT_TIMEOUT 修改后即时生效
+    其它配置项修改后都需要重启服务器才能生效，服务运行期间请勿修改
+    """
+    ...
+
+if __name__ == "__main__":
+    ...
 
